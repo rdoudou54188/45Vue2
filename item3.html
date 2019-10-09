@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue2.6.10.js"></script>
+    <style>
+        .mouseout{background-color: white;border: 1px blue solid}
+        .mouseon{background-color: blue;border: 1px white solid}
+    </style>
+</head>
+<body>
+<div id="demo">
+
+    <input type="text" v-model="msg">
+    <button @click="Click()" @mouseenter="mouse1()" @mouseleave="mouse2()":style="bsy">{{msg}}</button>
+</div>
+
+
+
+<script>
+new Vue({
+    el:"#demo",
+    data(){
+        return{
+            msg:"蓝色",
+            // cls1:"mouseon",
+            // cls2:"mouseout",
+            //
+            // class1:['mouseout'],
+            // class2:[{'mouseout':false}]
+
+            bsy:'background-color: white;border: 1px blue solid'
+        }
+    },
+
+    methods:{
+        mouse1() {
+            this.bsy='background-color: blue;border: 1px white solid'
+        },
+        mouse2(){
+            this.bsy='background-color: white;border: 1px blue solid'
+        },
+        Click(){
+            alert(this.msg)
+        }
+    }
+})
+</script>
+</body>
+</html>

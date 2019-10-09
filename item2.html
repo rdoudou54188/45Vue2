@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue2.6.10.js"></script>
+    <style>
+      .choose{background-color: darkorange}
+    </style>
+</head>
+<body>
+<div id="demo2" style="margin: 0 auto; width: 50%">
+    <table style="border: 1px solid black; width: 500px" cellspacing="0" cellpadding="0">
+        <tr >
+            <td style="text-align: center" v-for="(item,index) in title" :key="index" @click="Click(index)":class="{'choose':number==index}">{{item.name}}</td>
+        </tr>
+    </table>
+    <div style="border: 1px black solid; width: 500px; height: 300px">
+        <!--<ul>-->
+        <!--<li  v-for="(item,index) in contents" v-show="index == number">{{item.a}}{{item.b}}{{item.c}}</li>-->
+    <!--</ul>-->
+        <div v-for='(itemCon,index) in contents' v-show="index == number" v-html="itemCon" >
+    </div>
+</div>
+
+
+<script>
+
+
+new Vue({
+    el:"#demo2",
+    data(){
+        return {
+            title: [
+                { number:1,name:"京东超市"},
+                { number:2,name:"服饰美妆"},
+                { number:3,name:"数码电器"},
+                { number:4,name:"京东生鲜"},
+
+            ],
+
+            // content:[
+            //     {a:"aaaaa"},
+            //     {b:"bbbbb"},
+            //     {c:"ccccc"}
+            //     ],
+            // content2:[
+            //     {a:"aaaaa2"},
+            //     {b:"bbbbb2"},
+            //     {c:"ccccc2"}
+            // ],
+            // content3:[
+            //     {a:"aaaaa3"},
+            //     {b:"bbbbb3"},
+            //     {c:"ccccc3"}
+            // ],
+            // content4:[
+            //     {a:"aaaaa4"},
+            //     {b:"bbbbb4"},
+            //     {c:"ccccc4"}
+            // ],
+
+
+            contents: [
+                "<ul style='width: 100%;'><li style='width: 50%'>1</li><li>1</li></ul>",
+                "<ul style='width: 100%;'><li style='width: 50%'>2</li><li>2</li></ul>",
+                "<ul style='width: 100%;'><li style='width: 50%'></ul>",
+                "<ul style='width: 100%;'><li style='width: 50%'></ul>"],
+            number:0,
+
+        }
+
+
+    },
+     methods:{
+         Click(index){
+             this.number=index;
+             // if(this.number==index) {
+             //     this.show = true
+             //      console.log(this.show)
+             // }
+             // this.show=false
+             // console.log(this.show)
+
+         }
+     }
+})
+</script>
+</body>
+</html>
